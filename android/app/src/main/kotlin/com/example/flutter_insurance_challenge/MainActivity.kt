@@ -1,4 +1,4 @@
-package com.example.flutter_insurance_challenge
+package com.insurancechallenge.app
 
 import io.flutter.embedding.android.FlutterActivity
 
