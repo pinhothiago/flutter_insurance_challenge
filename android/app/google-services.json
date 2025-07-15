@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "755680987008",
+    "project_id": "flutter-insurance-challenge",
+    "storage_bucket": "flutter-insurance-challenge.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755680987008:android:3b5e490588c86ccc64e365",
+        "android_client_info": {
+          "package_name": "com.insurancechallenge.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755680987008-25cspp9m06tcmh6h1nc775jkgm7fgm9h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjNpJ6j2qnGcz2yiPLeUa10l8kNqwdc8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755680987008-25cspp9m06tcmh6h1nc775jkgm7fgm9h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
