@@ -151,7 +151,7 @@ class _LoginFormState extends State<LoginForm> {
       ),
       child: IconButton(
         icon: FaIcon(icon, color: color),
-        onPressed: () {}, // Somente visual
+        onPressed: () {},
       ),
     );
   }
