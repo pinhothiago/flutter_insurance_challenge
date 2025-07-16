@@ -51,10 +51,6 @@ Future<void> initDependencies() async {
   getIt.registerLazySingleton(() => CacheUser(getIt()));
 
   getIt.registerLazySingleton(
-    () => AuthBloc(
-      authRepository: getIt(),
-      cacheUser: getIt(),
-      googleSignInUser: getIt(),
-    ),
+    () => AuthBloc(authRepository: getIt(), cacheUser: getIt()),
   );
 }

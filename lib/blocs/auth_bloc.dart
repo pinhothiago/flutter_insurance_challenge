@@ -1,22 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_insurance_challenge/blocs/auth_event.dart';
 import 'package:flutter_insurance_challenge/blocs/auth_state.dart';
-import 'package:flutter_insurance_challenge/core/errors/exceptions.dart';
 import 'package:flutter_insurance_challenge/features/auth/domain/entities/user.dart';
 import 'package:flutter_insurance_challenge/features/auth/domain/repositories/auth_repository.dart';
 import 'package:flutter_insurance_challenge/features/auth/domain/usecases/cache_user.dart';
-import 'package:flutter_insurance_challenge/features/auth/domain/usecases/google_sign_in.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository authRepository;
   final CacheUser cacheUser;
-  final GoogleSignInUser googleSignInUser;
 
-  AuthBloc({
-    required this.googleSignInUser,
-    required this.authRepository,
-    required this.cacheUser,
-  }) : super(AuthInitial()) {
+  AuthBloc({required this.authRepository, required this.cacheUser})
+    : super(AuthInitial()) {
     on<LoginRequested>(_onLoginRequested);
     on<LogoutRequested>(_onLogOut);
     on<CheckAuthStatus>((event, emit) async {
@@ -32,20 +26,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthInitial());
       }
     });
-    on<GoogleLoginRequested>(_onGoogleSignInRequested);
+
     on<RegisterRequested>(_register);
-  }
-  Future<void> _onGoogleSignInRequested(
-    GoogleLoginRequested event,
-    Emitter<AuthState> emit,
-  ) async {
-    emit(AuthLoading());
-    try {
-      final user = await googleSignInUser();
-      emit(AuthAuthenticated(user));
-    } on AuthException catch (e) {
-      emit(AuthError(e.message));
-    }
   }
 
   Future<void> _onLoginRequested(
